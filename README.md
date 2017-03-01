@@ -25,17 +25,30 @@ switch_principal(config)#enable secret cisco
 ```
 // Creation des VLANs
 ```
-switch_principal(config)#vlan 10
-switch_principal(config-vlan)#name administration
-switch_principal(config-vlan)#vlan 20
-switch_principal(config-vlan)#name inf1021
-switch_principal(config-vlan)#vlan 30
-switch_principal(config-vlan)#name inf1041
-switch_principal(config-vlan)#vlan 40
-switch_principal(config-vlan)#name brice
-switch_principal(config-vlan)#exit
-switch_principal(config)#exit
-switch_principal#
+Switch>en
+Switch#config t
+
+Switch(config-vlan)#vlan 30
+Switch(config-vlan)#name OpenStackToronto
+Switch(config-vlan)#vlan 40
+Switch(config-vlan)#name OpenStackMississauga
+Switch(config-vlan)#vlan 50
+Switch(config-vlan)#name OpenStackScarborough
+Switch(config-vlan)#vlan 60
+Switch(config-vlan)#name OpenStackAjax
+
+Switch(config-if)#int f0/3
+Switch(config-if)#switchport mode access 
+Switch(config-if)#switchport access vlan 30
+Switch(config-if)#int f0/4
+Switch(config-if)#switchport mode access 
+Switch(config-if)#switchport access vlan 40
+Switch(config-if)#int f0/5
+Switch(config-if)#switchport mode access 
+Switch(config-if)#switchport access vlan 50
+
+Switch(config-if)#int g0/1
+Switch(config-if)#switchport mode trunk 
 ```
 
 ```
