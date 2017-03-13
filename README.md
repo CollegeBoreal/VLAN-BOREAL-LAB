@@ -88,35 +88,33 @@ switch_principal(config-if)#switchpor mode trunk
 
 -----------------------
 
-## Configuration Lab Routeur 
+# Configuration Lab Routeur 
 
-Configuration des sous-interfaces pour Inter-VLAN
-```
+## Configuration des sous-interfaces pour Inter-VLAN
 routeur_lab(config)#int g0/0.10
-
+```
 routeur_lab(config-subif)#int g0/0.30
 routeur_lab(config-subif)#encapsulation dot1Q 30
-routeur_lab(config-subif)#ip address 10.13.237.49 255.255.255.240
+routeur_lab(config-subif)#ip address 10.13.237.49 255.255.255.128
 routeur_lab(config-subif)#no sh
 routeur_lab(config-subif)#int g0/0.40
 routeur_lab(config-subif)#encapsulation dot1Q 40
-routeur_lab(config-subif)#ip address 10.13.237.65 255.255.255.240
+routeur_lab(config-subif)#ip address 10.13.237.65 255.255.255.128
 routeur_lab(config-subif)#no sh
 routeur_lab(config-subif)#int g0/0.50
 routeur_lab(config-subif)#encapsulation dot1Q 50
-routeur_lab(config-subif)#ip address 10.13.237.81 255.255.255.240
+routeur_lab(config-subif)#ip address 10.13.237.81 255.255.255.128
 routeur_lab(config-subif)#no sh
 routeur_lab(config-subif)#int g0/0.60
 routeur_lab(config-subif)#encapsulation dot1Q 60
-routeur_lab(config-subif)#ip address 10.13.237.97 255.255.255.240
+routeur_lab(config-subif)#ip address 10.13.237.97 255.255.255.128
 routeur_lab(config-subif)#no sh
 routeur_lab(config-subif)#
 ```
-A revoir le port sortant 
+## A revoir le port sortant 
 ```
 routeur_lab(config)#int g0/1
-routeur_lab(config-subif)#ip address 10.13.237.2 255.255.255.128
+routeur_lab(config-subif)#ip address 10.13.237.14 255.255.255.128
 routeur_lab(config-subif)#no sh
 routeur_lab(config)#ip route 0.0.0.0 0.0.0.0 g0/1
 ```
-![Alt tag](https://github.com/CollegeBoreal/VLAN-BOREAL-LAB/blob/master/Router.txt)
