@@ -5,19 +5,19 @@ routeur_lab(config)#int g0/0.10
 ```
 routeur_lab(config-subif)#int g0/0.30
 routeur_lab(config-subif)#encapsulation dot1Q 30
-routeur_lab(config-subif)#ip address 10.13.237.49 255.255.255.240
+routeur_lab(config-subif)#ip address 10.13.237.49 255.255.255.128
 routeur_lab(config-subif)#no sh
 routeur_lab(config-subif)#int g0/0.40
 routeur_lab(config-subif)#encapsulation dot1Q 40
-routeur_lab(config-subif)#ip address 10.13.237.65 255.255.255.240
+routeur_lab(config-subif)#ip address 10.13.237.65 255.255.255.128
 routeur_lab(config-subif)#no sh
 routeur_lab(config-subif)#int g0/0.50
 routeur_lab(config-subif)#encapsulation dot1Q 50
-routeur_lab(config-subif)#ip address 10.13.237.81 255.255.255.240
+routeur_lab(config-subif)#ip address 10.13.237.81 255.255.255.128
 routeur_lab(config-subif)#no sh
 routeur_lab(config-subif)#int g0/0.60
 routeur_lab(config-subif)#encapsulation dot1Q 60
-routeur_lab(config-subif)#ip address 10.13.237.97 255.255.255.240
+routeur_lab(config-subif)#ip address 10.13.237.97 255.255.255.128
 routeur_lab(config-subif)#no sh
 routeur_lab(config-subif)#
 ```
