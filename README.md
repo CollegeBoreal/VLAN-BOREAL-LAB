@@ -25,17 +25,30 @@ switch_principal(config)#enable secret cisco
 ```
 // Creation des VLANs
 ```
-switch_principal(config)#vlan 10
-switch_principal(config-vlan)#name administration
-switch_principal(config-vlan)#vlan 20
-switch_principal(config-vlan)#name inf1021
-switch_principal(config-vlan)#vlan 30
-switch_principal(config-vlan)#name inf1041
-switch_principal(config-vlan)#vlan 40
-switch_principal(config-vlan)#name brice
-switch_principal(config-vlan)#exit
-switch_principal(config)#exit
-switch_principal#
+Switch>en
+Switch#config t
+
+Switch(config-vlan)#vlan 30
+Switch(config-vlan)#name OpenStackToronto
+Switch(config-vlan)#vlan 40
+Switch(config-vlan)#name OpenStackMississauga
+Switch(config-vlan)#vlan 50
+Switch(config-vlan)#name OpenStackScarborough
+Switch(config-vlan)#vlan 60
+Switch(config-vlan)#name OpenStackAjax
+
+Switch(config-if)#int f0/3
+Switch(config-if)#switchport mode access 
+Switch(config-if)#switchport access vlan 30
+Switch(config-if)#int f0/4
+Switch(config-if)#switchport mode access 
+Switch(config-if)#switchport access vlan 40
+Switch(config-if)#int f0/5
+Switch(config-if)#switchport mode access 
+Switch(config-if)#switchport access vlan 50
+
+Switch(config-if)#int g0/1
+Switch(config-if)#switchport mode trunk 
 ```
 
 ```
@@ -75,59 +88,34 @@ switch_principal(config-if)#switchpor mode trunk
 
 -----------------------
 
-##Routeur : 
-// Configuration initiale du routeur.  
+## Configuration Lab Routeur 
 
-```
-Router>
-Router>en
-Router#config t
-Enter configuration commands, one per line.  End with CNTL/Z.
-Router(config)#hostname routeur_lab
-routeur_lab(config)#banner motd # Routeur Lab #
-routeur_lab(config)#enable secret cisco
-routeur_lab(config)#line con 0
-routeur_lab(config-line)#password cisco
-routeur_lab(config-line)#login
-routeur_lab(config-line)#line vty 0 4
-routeur_lab(config-line)#password cisco
-routeur_lab(config-line)#login
-routeur_lab(config-line)#line aux 0 
-routeur_lab(config-line)#password cisco
-routeur_lab(config-line)#login
-routeur_lab(config-line)#exit
-routeur_lab(config)#service password-en
-routeur_lab(config)#service password-encryption 
-```
-
-// Configuration des sous-interfaces pour Inter-VLAN
-
+Configuration des sous-interfaces pour Inter-VLAN
 ```
 routeur_lab(config)#int g0/0.10
 
-routeur_lab(config-subif)#encapsulation dot1Q 10
-routeur_lab(config-subif)#ip address 10.13.237.126 255.255.255.240
-routeur_lab(config-subif)#no sh
-routeur_lab(config-subif)#int g0/0.20
-routeur_lab(config-subif)#encapsulation dot1Q 20
-routeur_lab(config-subif)#ip address 10.13.237.81 255.255.255.240
-routeur_lab(config-subif)#no sh
 routeur_lab(config-subif)#int g0/0.30
 routeur_lab(config-subif)#encapsulation dot1Q 30
-routeur_lab(config-subif)#ip address 10.13.237.113 255.255.255.240
+routeur_lab(config-subif)#ip address 10.13.237.49 255.255.255.240
 routeur_lab(config-subif)#no sh
 routeur_lab(config-subif)#int g0/0.40
 routeur_lab(config-subif)#encapsulation dot1Q 40
-routeur_lab(config-subif)#ip address 10.13.237.145 255.255.255.240
+routeur_lab(config-subif)#ip address 10.13.237.65 255.255.255.240
+routeur_lab(config-subif)#no sh
+routeur_lab(config-subif)#int g0/0.50
+routeur_lab(config-subif)#encapsulation dot1Q 50
+routeur_lab(config-subif)#ip address 10.13.237.81 255.255.255.240
+routeur_lab(config-subif)#no sh
+routeur_lab(config-subif)#int g0/0.60
+routeur_lab(config-subif)#encapsulation dot1Q 60
+routeur_lab(config-subif)#ip address 10.13.237.97 255.255.255.240
 routeur_lab(config-subif)#no sh
 routeur_lab(config-subif)#
 ```
-
-// Configuration des sous-interfaces pour Inter-VLAN
-
+A revoir le port sortant 
 ```
 routeur_lab(config)#int g0/1
-routeur_lab(config-subif)#ip address 10.13.237.14 255.255.255.128
+routeur_lab(config-subif)#ip address 10.13.237.2 255.255.255.128
 routeur_lab(config-subif)#no sh
 routeur_lab(config)#ip route 0.0.0.0 0.0.0.0 g0/1
 ```
