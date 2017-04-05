@@ -4,7 +4,7 @@
 
 La solution de créer les VLANs pourrait fonctionner avec NAT
 
-Un exemple ci-dessous avec DHCP
+Un exemple ci-dessous avec DHCP  
 https://seansblag.com/2009/12/configuring-a-cisco-router-with-intervlan-routing-and-natpat/
 
 
