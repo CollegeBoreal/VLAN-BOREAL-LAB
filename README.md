@@ -1,4 +1,16 @@
 # VLAN-BOREAL-LAB
+
+## Statut
+
+La solution de créer les VLANs pourrait fonctionner avec NAT
+
+Un exemple ci-dessous avec DHCP
+https://seansblag.com/2009/12/configuring-a-cisco-router-with-intervlan-routing-and-natpat/
+
+
+# ------------
+
+
 Creation de VLAN pour les besoins de laboratoire au college Boreal Toronto
 
 ![alt tag](https://github.com/CollegeBoreal/VLAN-BOREAL-LAB/blob/master/VLAN-LAB.png)
