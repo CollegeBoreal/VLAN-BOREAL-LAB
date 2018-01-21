@@ -1,0 +1,16 @@
+
+#Configure the interface to the default router. 
+#In this scenario you have a Layer 3 GigabitEthernet port.
+
+Switch(config)#interface GigabitEthernet 0/1
+Switch(config-if)#no switchport
+Switch(config-if)#ip address 10.13.237.2 255.255.255.128
+Switch(config-if)#no shutdown
+
+# Configure the VLAN interfaces with the IP address identified in step 4.
+
+Switch#configure terminal
+# Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#interface Vlan2
+Switch(config-if)#ip address 10.1.2.1 255.255.255.0
+Switch(config-if)#no shutdown
