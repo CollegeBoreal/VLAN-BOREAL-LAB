@@ -4,6 +4,8 @@
 
 https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41860-howto-L3-intervlanrouting.html
 
+![alt tag](./MAP.png)
+
 ## Statut
 
 La solution de créer les VLANs pourrait fonctionner avec NAT
