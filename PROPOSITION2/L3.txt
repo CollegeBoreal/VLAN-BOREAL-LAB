@@ -13,7 +13,6 @@ Switch# configure terminal
 # Enter configuration commands, one per line.  End with CNTL/Z.
 switch(config)# vlan 10
 switch(config-vlan)# name admin
-switch(config-vlan)# no shutdown
 
 # Assign the VLAN to an interface
 
@@ -25,6 +24,6 @@ switch(config-if)# no shutdown
 
 Switch#configure terminal
 # Enter configuration commands, one per line.  End with CNTL/Z.
-Switch(config)#interface Vlan10
-Switch(config-if)#ip address 10.2.237.17 255.255.255.248
+Switch(config)#interface vlan 10
+Switch(config-if)#ip address 10.13.237.17 255.255.255.248
 Switch(config-if)#no shutdown
