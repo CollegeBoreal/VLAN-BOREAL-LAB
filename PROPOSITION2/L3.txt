@@ -27,3 +27,7 @@ Switch#configure terminal
 Switch(config)#interface vlan 10
 Switch(config-if)#ip address 10.13.237.17 255.255.255.248
 Switch(config-if)#no shutdown
+
+
+
+ip route 10.13.237.16 255.255.255.248 10.13.237.17
