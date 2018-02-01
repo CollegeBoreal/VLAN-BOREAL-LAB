@@ -7,7 +7,7 @@ Switch(config-if)#no switchport
 Switch(config-if)#ip address 10.13.237.2 255.255.255.128
 Switch(config-if)#no shutdown
 
-# Create the VLAN 
+# Create the VLAN 10 
 
 Switch# configure terminal
 # Enter configuration commands, one per line.  End with CNTL/Z.
@@ -28,6 +28,31 @@ Switch(config)#interface vlan 10
 Switch(config-if)#ip address 10.13.237.17 255.255.255.248
 Switch(config-if)#no shutdown
 
+# Create the VLAN 20 
+
+Switch# configure terminal
+# Enter configuration commands, one per line.  End with CNTL/Z.
+switch(config)# vlan 20
+switch(config-vlan)# name toronto
+
+# Assign the VLAN to an interface
+
+Switch(config)#interface FastEthernet 0/20
+Switch(config-if)#switchport access vlan 20
+switch(config-if)# no shutdown
+
+# Configure the VLAN interfaces with the IP address 
+
+Switch#configure terminal
+# Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#interface vlan 20
+Switch(config-if)#ip address 10.13.237.33 255.255.255.248
+Switch(config-if)#no shutdown
 
 
-ip route 10.13.237.16 255.255.255.248 10.13.237.17
+# Enable Routing
+
+Switch#configure terminal
+Switch#ip routing
+
+
