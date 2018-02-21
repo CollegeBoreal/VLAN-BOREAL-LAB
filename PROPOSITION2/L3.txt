@@ -1,4 +1,10 @@
 
+#Configure mode trunk
+
+Switch(config)#int g0/32
+Switch(config-if)#switchport trunk encapsulation dot1q 
+Switch(config-if)#switchport mode trunk 
+
 #Configure the interface to the default router. 
 #In this scenario you have a Layer 3 GigabitEthernet port.
 
